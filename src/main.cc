@@ -15,4 +15,8 @@ using edu::vcccd::vc::csv15::mergesort;
 using std::cout;
 using std::endl;
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]){
+    int array[];
+
+
+}

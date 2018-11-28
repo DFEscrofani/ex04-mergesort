@@ -13,8 +13,8 @@
 namespace edu { namespace vcccd { namespace vc { namespace csv15 {
 
     template<class T>
-        void mergesort(T array[], size_t size) {
-
+        void mergesort(T array[], T temp[], size_t left, size_t mid, size_t right) {
+            f
         }
 
 }}}}
