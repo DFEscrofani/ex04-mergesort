@@ -13,13 +13,48 @@
 namespace edu { namespace vcccd { namespace vc { namespace csv15 {
 
     template<class T>
-        void Merge(T array[], T temp[], uint64_t i, uint64_t mid, uint64_t j) {
+        void Merge(T array[], size_t i, size_t j, size_t k) {
 
-            uint64_t left = 1;
+        size_t mergeSize = k - i + 1;
+        size_t mergeIndex = 0;
+        size_t temp[] = new size_t[mergeSize]
 
-            while (){
+        size_t leftStart = i;
+        size_t rightStart = j + 1;
 
+        while (leftStart <= j && rightStart <= k) {
+            if (array[leftStart] <= array[rightStart]) {
+                temp[mergeIndex] = array[leftStart]
+                    leftStart++
+            } else {
+                temp[mergeIndex] = array[rightStart]
+                    rightStart++
             }
+            ++mergeIndex
+        }
+
+        while (leftStart <= j) {
+            temp[mergeIndex] = array[leftStart]
+                leftStart++
+                mergeIndex++
+        }
+        while (rightStart <= j) {
+            temp[mergeIndex] = array[rightStart]
+                rightStart++
+                mergeIndex++
+        }
+
+        for (mergeIndex = 0; mergeIndex < mergeSize; mergeIndex++) {
+            array[i + mergeIndex] = temp[mergeIndex]
+        }
+    }
+
+    template<class T>
+        void Merge_ (){}
+
+    template<class T>
+        void mergesort(){
+
         }
 
 }}}}
