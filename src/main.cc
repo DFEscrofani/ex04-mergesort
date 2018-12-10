@@ -8,14 +8,26 @@
 *
 * @DaltonEscrofani
 */
-#include <cstdint>
+#include <iostream>
 #include "mergesort.h"
 
-using edu::vcccd::vc::csv15::mergesort;
+using edu::vcccd::vc::csv15::mergeSort;
 using std::cout;
 using std::endl;
 
-int main(int argc, char *argv[]){
-    int array[];
+int main (int argc, char *argv[]){
+    int array [] = { 2, 4, 1, 6, 8, 5, 3, 7};
+    cout << "Unsorted : ";
 
-}
+    for (int i = 0; i <= 7; i++){
+        cout << array[i] << " ";
+    }
+    cout << endl;
+
+    mergeSort(array, 8, 8);
+
+    cout << "Sorted : ";
+    for (int i = 0; i <= 7; i++){
+        cout << array[i] << " ";
+    }
+};

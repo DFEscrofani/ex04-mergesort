@@ -12,49 +12,53 @@
 
 namespace edu { namespace vcccd { namespace vc { namespace csv15 {
 
-    template<class T>
-        void Merge(T array[], size_t i, size_t j, size_t k) {
+                template<class T>
+                void merge(T array[], size_t i, size_t j, size_t k) {
 
-        size_t mergeSize = k - i + 1;
-        size_t mergeIndex = 0;
-        size_t temp[] = new size_t[mergeSize]
+                    size_t mergeSize = k - i + 1;
+                    size_t mergeIndex = 0;
+                    size_t* temp = new size_t [mergeSize];
 
-        size_t leftStart = i;
-        size_t rightStart = j + 1;
+                    size_t leftStart = i;
+                    size_t rightStart = j + 1;
 
-        while (leftStart <= j && rightStart <= k) {
-            if (array[leftStart] <= array[rightStart]) {
-                temp[mergeIndex] = array[leftStart]
-                    leftStart++
-            } else {
-                temp[mergeIndex] = array[rightStart]
-                    rightStart++
-            }
-            ++mergeIndex
-        }
+                    while (leftStart <= j && rightStart <= k){
+                        if (array[leftStart] <= array[rightStart]) {
+                            temp[mergeIndex] = array[leftStart];
+                            leftStart++;
+                        } else {
+                            temp[mergeIndex] = array[rightStart];
+                            rightStart++;
+                        }
+                        mergeIndex++;
+                    }
 
-        while (leftStart <= j) {
-            temp[mergeIndex] = array[leftStart]
-                leftStart++
-                mergeIndex++
-        }
-        while (rightStart <= j) {
-            temp[mergeIndex] = array[rightStart]
-                rightStart++
-                mergeIndex++
-        }
+                    while (leftStart <= j) {
+                        temp[mergeIndex] = array[leftStart];
+                        leftStart++;
+                        mergeIndex++;
+                    }
+                    while (rightStart <= j) {
+                        temp[mergeIndex] = array[rightStart];
+                        rightStart++;
+                        mergeIndex++;
+                    }
 
-        for (mergeIndex = 0; mergeIndex < mergeSize; mergeIndex++) {
-            array[i + mergeIndex] = temp[mergeIndex]
-        }
-    }
+                    for (mergeIndex = 0; mergeIndex < mergeSize; mergeIndex++) {
+                        array[i + mergeIndex] = temp[mergeIndex];
+                    }
+                }
 
-    template<class T>
-        void Merge_ (){}
+                template<class T>
+                void mergeSort (T array[], size_t i, size_t k){
+                    size_t j = 0;
 
-    template<class T>
-        void mergesort(){
+                    if(i < k){
+                        j = (i + k) / 2;
+                        mergeSort(array, i, j);
+                        mergeSort(array, j + 1, k);
 
-        }
-
-}}}}
+                        merge(array, i, j, k);
+                    }
+                }
+            }}}}
